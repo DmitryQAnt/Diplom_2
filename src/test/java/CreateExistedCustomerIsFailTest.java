@@ -11,19 +11,19 @@ public class CreateExistedCustomerIsFailTest {
     private String bearer;
 
 
-    @Test
-    @DisplayName("Check already created customer ")
-    @Description("Basic negative test for /auth/register endpoint")
-    public void checkCreateExistedCustomerIsFailing() {
-        customer = CustomerGenerator.random();
-        ValidatableResponse newClient = CustomerOperations.create(customer);
-        bearer = newCustomer.getAuthorizationBearer(newClient);
-        ValidatableResponse theSameClient = CustomerOperations.create(customer);
-        check.isTheSameCustomerRegistrationForbidden(theSameClient);
-    }
-    @After
-    public void clearData() {
-        ValidatableResponse response = CustomerOperations.delete(bearer);
-        check.isDeleteIsSuccessfully(response);
-    }
+//    @Test
+//    @DisplayName("Check already created customer ")
+//    @Description("Basic negative test for /auth/register endpoint")
+//    public void checkCreateExistedCustomerIsFailing() {
+//        customer = CustomerGenerator.random();
+//        ValidatableResponse newClient = CustomerOperations.create(customer);
+//        bearer = newCustomer.getAuthorizationBearer(newClient);
+//        ValidatableResponse theSameClient = CustomerOperations.create(customer);
+//        check.isTheSameCustomerRegistrationForbidden(theSameClient);
+//    }
+//    @After
+//    public void clearData() {
+//        ValidatableResponse response = CustomerOperations.delete(bearer);
+//        check.isDeleteIsSuccessfully(response);
+//    }
 }

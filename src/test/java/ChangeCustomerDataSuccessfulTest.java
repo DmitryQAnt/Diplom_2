@@ -16,11 +16,11 @@ public class ChangeCustomerDataSuccessfulTest {
     @Description("Successful login test for /api/v1/courier/login endpoint")
     public void checkCreateNewCustomerWithUniqueData() {
         customer = CustomerGenerator.random();
-        ValidatableResponse response = CustomerOperations.create(customer);
-        bearer = newCustomer.getAuthorizationBearer(response);
+        ValidatableResponse baseCustomer = CustomerOperations.create(customer);
+        bearer = newCustomer.getAuthorizationBearer(baseCustomer);
         updatedCustomer = CustomerGenerator.random();
-        ValidatableResponse response2 = CustomerOperations.changeDataWithAuthorization(bearer, updatedCustomer);
-        check.updatingDataIsSuccessful(response2);
+        ValidatableResponse secondCustomer = CustomerOperations.changeDataWithAuthorization(bearer, updatedCustomer);
+        check.updatingDataIsSuccessful(secondCustomer);
 
     }
     @After
